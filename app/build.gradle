@@ -10,12 +10,25 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        release {
+            storeFile file("./zt-release-key.keystore")
+            storePassword "I9wJIoid2c"
+            keyAlias "zt"
+            keyPassword "I9wJIoid2c"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
+
+
 }
 
 dependencies {
